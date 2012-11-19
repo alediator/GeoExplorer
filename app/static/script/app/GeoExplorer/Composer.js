@@ -64,7 +64,7 @@ GeoExplorer.Composer = Ext.extend(GeoExplorer, {
                 },
                 outputTarget: "tree"
             }, {
-                ptype: "gxp_addlayers",
+                ptype: "vw_addlayers",
                 actionTarget: "layers.tbar",
                 outputTarget: "tree",
                 uploadSource: "local",

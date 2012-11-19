@@ -3,6 +3,8 @@
     <!--[if IE]><link rel="stylesheet" type="text/css" href="../theme/app/ie.css"/><![endif]-->        
     <link rel="stylesheet" type="text/css" href="../theme/ux/colorpicker/color-picker.ux.css" />
     <script type="text/javascript" src="../script/GeoExplorer.js"></script>
+    <script type="text/javascript" src="../script/ux/loader.js"></script>
+ 
 
     <!-- PrintPreview resources -->
     <link rel="stylesheet" type="text/css" href="../externals/PrintPreview/resources/css/printpreview.css">
@@ -59,10 +61,20 @@
                 },
                 ol: {
                     ptype: "gxp_olsource"
+                },
+                geowebcache: {
+                    url: "http://maps.opengeo.org/geowebcache/service/wms",
+                    title: "MapBaseLayer",
+                    ptype: "gxp_wmscsource"
+                },
+                h_mineduc_establecimientos:{
+                    url: "http://catalogo.geoportal.cl/arcgis/services/h_mineduc_establecimientos/MapServer/WMSServer?request=GetCapabilities&service=WMS",
+                    title: "Ejemplo GeoPortal.cl",
+                    ptype: "gxp_wmscsource"
                 }
             },
             map: {
-                projection: "EPSG:102113",
+                projection: "EPSG:4326",
                 layers: [{
                     source: "mapquest",
                     title: "MapQuest OpenStreetMap",
@@ -76,6 +88,24 @@
                     args: [
                         "None", {visibility: false}
                     ]
+                }, {
+                    source: "geowebcache",
+                    title: "MapBaseLayer",
+                    name: "graphite",
+                    group: "background",
+                    format: "image/png",
+                    args: ["None", {
+                        "projection": 'EPSG:4326',
+                        "maxExtent": [-180.0, -90.0, 180.0, 90.0],
+                        "units": "degrees",
+                        "resolutions": [
+                            0.703125, 0.3515625, 0.17578125, 0.087890625, 0.0439453125,
+                            0.02197265625, 0.010986328125, 0.0054931640625, 0.00274658203125, 0.001373291015625,
+                            6.866455078125E-4, 3.4332275390625E-4, 1.71661376953125E-4, 8.58306884765625E-5,
+                            4.291534423828125E-5, 2.1457672119140625E-5, 1.0728836059570312E-5, 5.364418029785156E-6,
+                            2.682209014892578E-6, 1.341104507446289E-6, 6.705522537231445E-7, 3.3527612686157227E-7
+                        ]
+                    }]
                 }],
                 center: [0, 0],
                 zoom: 2
