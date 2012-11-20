@@ -11,6 +11,7 @@
         "GeoExt/data/WFSCapabilitiesStore.js",
         "widgets/AddLayers.js",
         "widgets/WfsWizard.js",
+        "widgets/Styler.js",
         "persistenceGeo.js"
     );
     

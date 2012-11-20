@@ -82,8 +82,9 @@ GeoExplorer.Composer = Ext.extend(GeoExplorer, {
                 actionTarget: ["layers.tbar", "layers.contextMenu"],
                 outputTarget: "tree"
             }, {
-                ptype: "gxp_styler",
+                ptype: "vw_styler",
                 id: "styler",
+                sameOriginStyling: false,
                 outputConfig: {autoScroll: true, width: 320},
                 actionTarget: ["layers.tbar", "layers.contextMenu"],
                 outputTarget: "tree"
